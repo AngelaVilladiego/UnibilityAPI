@@ -34,7 +34,6 @@ namespace API.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
-            
         }
     }
 }
