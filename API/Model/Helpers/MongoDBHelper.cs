@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Model.Entities;
+using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace API.Model.Helpers
@@ -23,7 +24,12 @@ namespace API.Model.Helpers
             var client = new MongoClient(settings);
 
             var database = client.GetDatabase("Unibility");
-            return new LocationEntity();
+            var data = database.GetCollection<LocationEntity>("Locations");
+            var result = data.Find(new BsonDocument()).FirstOrDefault();
+            var location = new LocationEntity{
+                name = result.name
+            };
+            return result;
         }
     }
 }
