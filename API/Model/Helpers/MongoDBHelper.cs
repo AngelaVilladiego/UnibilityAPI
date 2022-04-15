@@ -36,5 +36,26 @@ namespace API.Model.Helpers
 
             return result;
         }
+
+        public static async void AddReview(ReviewEntity item)
+        {
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://unibility-admin:Q4oVQd9IivNDgqXJ@unibility-cluster.trgpx.mongodb.net/Unibility?retryWrites=true&w=majority");
+
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+
+            var client = new MongoClient(settings);
+
+            var database = client.GetDatabase("Unibility");
+
+            // reviews collection
+            var data = database.GetCollection<ReviewEntity>("Reviews");
+
+            var review = new ReviewEntity{
+                rating = 3,
+                body = "some review"
+            };
+
+            data.InsertOne(review);
+        }
     }
 }
