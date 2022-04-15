@@ -19,7 +19,7 @@ namespace API.Controllers
         }
 
         [HttpGet("getLocationData")]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> GetLocationData()
         {
             var locationData = await MongoDBHelper.GetLocationInformation();
             return Ok(locationData);
