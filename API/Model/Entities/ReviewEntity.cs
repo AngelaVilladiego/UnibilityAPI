@@ -9,8 +9,8 @@ namespace API.Model.Entities
 {
     public class ReviewEntity
     {
-        [JsonPropertyName("Rating")]public int rating { get; set; }
-        [JsonPropertyName("Body")]public string body { get; set; }
+        [JsonPropertyName("rating")]public int rating { get; set; }
+        [JsonPropertyName("body")]public string body { get; set; }
 
     }
 }
