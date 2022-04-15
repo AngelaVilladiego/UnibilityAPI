@@ -679,23 +679,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/brandon/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "/Users/giovannacoral/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/brandon/Documents/Unibility-API/API/API.csproj",
+      "projectUniqueName": "/Users/giovannacoral/unibility-api/API/API.csproj",
       "projectName": "API",
-      "projectPath": "/Users/brandon/Documents/Unibility-API/API/API.csproj",
-      "packagesPath": "/Users/brandon/.nuget/packages/",
-      "outputPath": "/Users/brandon/Documents/Unibility-API/API/obj/",
+      "projectPath": "/Users/giovannacoral/unibility-api/API/API.csproj",
+      "packagesPath": "/Users/giovannacoral/.nuget/packages/",
+      "outputPath": "/Users/giovannacoral/unibility-api/API/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "/Users/brandon/.nuget/NuGet/NuGet.Config"
+        "/Users/giovannacoral/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -758,7 +754,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.404/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.401/RuntimeIdentifierGraph.json"
       }
     }
   }
