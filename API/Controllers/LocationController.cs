@@ -22,7 +22,7 @@ namespace API.Controllers
         public async Task<IActionResult> Get()
         {
             var locationData = await MongoDBHelper.GetLocationInformation();
-            return Ok(locationData.name);
+            return Ok(locationData);
         }
     }
 }

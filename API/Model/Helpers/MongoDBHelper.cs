@@ -10,25 +10,30 @@ namespace API.Model.Helpers
 {
     public class MongoDBHelper
     {
-        private readonly string _connectionString = "mongodb+srv://unibility-admin:Q4oVQd9IivNDgqXJ@unibility-cluster.trgpx.mongodb.net/Unibility?retryWrites=true&w=majority";
-
         public MongoDBHelper()
-        {
-            
-            
+        {   
         }
 
         public static async Task<LocationEntity> GetLocationInformation(){
             var settings = MongoClientSettings.FromConnectionString("mongodb+srv://unibility-admin:Q4oVQd9IivNDgqXJ@unibility-cluster.trgpx.mongodb.net/Unibility?retryWrites=true&w=majority");
+            
             settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+            
             var client = new MongoClient(settings);
 
             var database = client.GetDatabase("Unibility");
+
             var data = database.GetCollection<LocationEntity>("Locations");
+
             var result = data.Find(new BsonDocument()).FirstOrDefault();
+
             var location = new LocationEntity{
-                name = result.name
+                name = result.name,
+                TypeOfBusiness = result.TypeOfBusiness,
+                OwnerContactInfo = result.OwnerContactInfo,
+                AccessibilityList = result.AccessibilityList
             };
+
             return result;
         }
     }
