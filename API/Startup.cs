@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using API.Model.Helpers;
 using Microsoft.AspNetCore.Builder;
@@ -33,7 +34,11 @@ namespace API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
             });
-            
+            services.AddHttpsRedirection(options =>
+            {
+                options.RedirectStatusCode = (int) HttpStatusCode.TemporaryRedirect;
+                options.HttpsPort = 5001;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
