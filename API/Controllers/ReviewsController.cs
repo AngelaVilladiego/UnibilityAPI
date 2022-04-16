@@ -4,25 +4,29 @@ using System.Linq;
 using System.Threading.Tasks;
 using API.Model.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using API.Model.Entities;
+using MongoDB.Bson;
+using MongoDB.Driver;
 
 namespace API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class LocationController : ControllerBase
+    public class ReviewsController : ControllerBase
     {
         private MongoDBHelper _mongoDBHelper;
 
-        public LocationController(MongoDBHelper helper)
+        public ReviewsController(MongoDBHelper helper)
         {
             _mongoDBHelper = helper;
         }
 
-        [HttpGet("getLocationData")]
-        public async Task<IActionResult> GetLocationData()
+
+        [HttpPost("addreview")]
+        public async Task<IActionResult> Add(ReviewEntity item)
         {
-            var locationData = await MongoDBHelper.GetLocationInformation();
-            return Ok(locationData);
-        }
+            MongoDBHelper.AddReview(item);
+            return Ok();
+        } 
     }
 }
