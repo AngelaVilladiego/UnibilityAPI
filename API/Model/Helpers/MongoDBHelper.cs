@@ -57,5 +57,18 @@ namespace API.Model.Helpers
 
             data.InsertOne(review);
         }
+
+        public static async void AddReport(ReportEntity item) {
+            var settings = MongoClientSettings.FromConnectionString("mongodb+srv://unibility-admin:Q4oVQd9IivNDgqXJ@unibility-cluster.trgpx.mongodb.net/Unibility?retryWrites=true&w=majority");
+
+            settings.ServerApi = new ServerApi(ServerApiVersion.V1);
+
+            var client = new MongoClient(settings);
+
+            var database = client.GetDatabase("Unibility");
+            var data = database.GetCollection<ReportEntity>("Reports");
+
+            data.InsertOne(item);
+        }
     }
 }
